@@ -1,1 +1,1 @@
-# eCommerce Applicate for Powerhouse Motorsports
+# eCommerce Application for Powerhouse Motorsports
