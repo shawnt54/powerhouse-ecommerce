@@ -8,7 +8,7 @@ import {
   Icon,
   Image,
   Item,
-  // Label,
+  Label,
   Loader,
   Message,
   Segment
@@ -74,7 +74,9 @@ class ProductList extends React.Component {
           {data.map(item => {
             return (
               <Item key={item.id}>
-                <Item.Image src={item.image} />
+                <Item.Image src={item.image} as='a' onClick={() =>
+                      this.props.history.push(`/products/${item.id}`)
+                    } />
                 <Item.Content>
                   <Item.Header
                     as="a"
@@ -88,9 +90,13 @@ class ProductList extends React.Component {
                     <span className="cinema">{item.category}</span>
                   </Item.Meta>
                   <Item.Description>{item.description}</Item.Description>
+                  <Label size='large'>
+                      ${item.discount_price}  
+                  </Label> 
                   <Item.Extra>
                     {<Button
                       color="green"
+                      size="large"
                       floated="right"
                       icon
                       labelPosition="right"

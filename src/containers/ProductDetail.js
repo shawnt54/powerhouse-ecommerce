@@ -98,7 +98,7 @@ class ProductDetail extends React.Component {
         {error && (
           <Message
             error
-            header="There was some errors with your submission"
+            header="There were some errors with your submission"
             content={JSON.stringify(error)}
           />
         )}
@@ -120,24 +120,14 @@ class ProductDetail extends React.Component {
                 meta={
                   <React.Fragment>
                     {item.category}
-                    {item.discount_price && (
-                      <Label
-                        color={
-                          item.label === "primary"
-                            ? "blue"
-                            : item.label === "secondary"
-                            ? "green"
-                            : "olive"
-                        }
-                      >
-                        {item.label}
-                      </Label>
-                    )}
                   </React.Fragment>
                 }
                 description={item.description}
                 extra={
                   <React.Fragment>
+                     <Label size='large'>
+                      ${item.discount_price}  
+                    </Label> 
                     <Button
                       fluid
                       color="green"
@@ -178,13 +168,14 @@ class ProductDetail extends React.Component {
                         </Form.Field>
                       );
                     })}
-                    <Form.Button primary>Add</Form.Button>
+                    <Form.Button color='green' fluid >Continue to Checkout <Icon name='right arrow' />
+                    </Form.Button>
                   </Form>
                 </React.Fragment>
               )}
             </Grid.Column>
             <Grid.Column>
-              <Header as="h2">Try different variations</Header>
+            <Image src='https://static.wixstatic.com/media/fb9e24_cab97852dee54d9f9ae8fb0d7338ebe5~mv2.jpg/v1/fill/w_1225,h_335,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/fb9e24_cab97852dee54d9f9ae8fb0d7338ebe5~mv2.jpg' size='big' rounded centered as='a' href='/' />
               {data.variations &&
                 data.variations.map(v => {
                   return (
